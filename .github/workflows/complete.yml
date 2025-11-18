@@ -12,8 +12,6 @@ jobs:
         
       - name: Setup Node.js environment
         uses: actions/setup-node@v6.0.0
-          with:
-            node-version: '20.x'
         
       - name: bundle everything to zip
         run: zip -r code.zip ./
