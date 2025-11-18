@@ -1,4 +1,4 @@
-name: Build Example
+name: Complete Build Example
 
 on:
   workflow_dispatch:
