@@ -12,7 +12,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v6.0.0
       - name: bundle everything to zip
-        run: zip -r * > code.zip
+        run: zip -r code.zip ./
       - name: verification
         run: ls -alhR
 
