@@ -44,7 +44,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: user/app:latest
+          tags: izzy84/calculator-app-finished2:latest
 
       - name: Better Test Reports Action
         uses: mridang/action-test-reporter@v1.7.0
