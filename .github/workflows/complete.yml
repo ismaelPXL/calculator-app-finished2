@@ -12,6 +12,8 @@ jobs:
         
       - name: Setup Node.js environment
         uses: actions/setup-node@v6.0.0
+          with:
+            node-version: '20.x'
         
       - name: bundle everything to zip
         run: zip -r code.zip ./
@@ -21,7 +23,13 @@ jobs:
 
       - run: npm install
       - run: npm run build --if-present
-      - run: npm test
+
+      - name: Run tests and generate coverage
+        run: npm test -- --coverage
 
       - name: test reporter
         uses: mridang/action-test-reporter@v1.7.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          coverage-file: ./coverage/clover.xml # Path to your clover, cobertura, jacoco, or lcov file
+          working-directory: ./
