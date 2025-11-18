@@ -3,11 +3,18 @@ name: Checkout Example
 on:
   workflow_dispatch:
 
+# on:
+#   push:
+#     branches:
+#       - main
+
 jobs:
-  checkout:
+  checkout-example:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5.0.1
-      - name: verification
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: List all files recursively
         run: ls -alhR
