@@ -8,13 +8,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: execute remote ssh commands using password
-        uses: appleboy/ssh-action@v1
+      - name: execute remote ssh commands
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{secrets.PROD_IP}}
+          host: ${{ secrets.PROD_IP }}
           username: ubuntu
-          key: ${{secrets.SSH_KEY}}
+          key: ${{ secrets.SSH_KEY }} 
           script: |
+            # 1. Haal de nieuwste image op
             docker pull izzy84/calculator-app:latest
-            docker rm calculator-app || true
+            
+            # 2. Stop en verwijder de oude container (geforceerd)
+            docker rm -f calculator-app || true
+            
+            # 3. Start de nieuwe container op poort 80
             docker run -d -p 80:3000 --name calculator-app izzy84/calculator-app:latest
