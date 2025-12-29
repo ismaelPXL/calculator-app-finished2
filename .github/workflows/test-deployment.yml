@@ -9,10 +9,10 @@ jobs:
 
     steps: 
       - name: docker pull image
-        run: docker pull ismaelPXL/calculator-app:latest
+        run: docker pull ismaelPXL/calculator-app-finished2:latest
       - name: stop any running container
         run: |
           docker stop $(docker ps -q) || true
           docker rm calculator-app || true
       - name: run docker container
-        run: docker run -d -p 3000:3000 --name calculator-app ismaelPXL/calculator-app:latest
+        run: docker run -d -p 3000:3000 --name calculator-app ismaelPXL/calculator-app-finished2:latest
