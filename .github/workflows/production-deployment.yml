@@ -16,10 +16,10 @@ jobs:
           key: ${{ secrets.SSH_KEY }} 
           script: |
             # 1. Haal de nieuwste image op
-            docker pull izzy84/calculator-app:latest
+            docker pull izzy84/calculator-app-finished2:latest
             
             # 2. Stop en verwijder de oude container (geforceerd)
             docker rm -f calculator-app || true
             
             # 3. Start de nieuwe container op poort 80
-            docker run -d -p 80:3000 --name calculator-app izzy84/calculator-app:latest
+            docker run -d -p 80:3000 --name calculator-app izzy84/calculator-app-finished2:latest
