@@ -9,10 +9,10 @@ jobs:
 
     steps: 
       - name: docker pull image
-        run: docker pull ismaelPXL/calculator-app-finished2:latest
+        run: docker pull izzy84/calculator-app-finished2:latest
 
       - name: cleanup old container
         run: docker rm -f calculator-app || true
 
       - name: run docker container
-        run: docker run -d -p 3000:3000 --name calculator-app ismaelPXL/calculator-app-finished2:latest
+        run: docker run -d -p 3000:3000 --name calculator-app izzy84/calculator-app-finished2:latest
